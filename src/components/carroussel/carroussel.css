@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Carroussel Component Styles - Sou Hallel
+   ========================================================================== */
+
+.carroussel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 1.5rem 0 2.5rem 0;
+  user-select: none;
+}
+
+.carroussel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  height: 100%;
+}
+
+.carroussel-slide {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Modos 3D / Centrado Multi-Item (como no protótipo) */
+.carroussel-container.mode-center {
+  overflow: hidden;
+}
+
+.carroussel-container.mode-center .carroussel-track {
+  align-items: center;
+}
+
+.carroussel-container.mode-center .carroussel-slide {
+  opacity: 0.55;
+  transform: scale(0.84);
+  transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.carroussel-container.mode-center .carroussel-slide.active {
+  opacity: 1;
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+/* Modos Marquee Contínuo (Movimento lento, fluído e linear sem paradas) */
+@keyframes carrousselMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carroussel-container.mode-marquee {
+  overflow: hidden;
+  width: 100%;
+  padding: 0.4rem 0;
+}
+
+.carroussel-container.mode-marquee .carroussel-track-marquee {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  animation-name: carrousselMarquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transition: none !important;
+  will-change: transform;
+}
+
+.carroussel-slide.slide-marquee {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* Controls & Indicators */
+.carroussel-controls-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 20;
+}
+
+.carroussel-arrow {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.carroussel-arrow:hover {
+  color: var(--button-color-light);
+  transform: scale(1.2);
+}
+
+.carroussel-indicators {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.carroussel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--border-glass-light);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carroussel-dot.active {
+  background-color: var(--fade-effect-light);
+  box-shadow: 0 0 10px var(--fade-effect-light);
+  width: 12px;
+  height: 12px;
+}
+
+.carroussel-dot:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .carroussel-container {
+    padding: 1rem 0 1.75rem 0;
+  }
+
+  .carroussel-slide {
+    padding: 0 0.5rem;
+  }
+
+  .carroussel-container.mode-center .carroussel-slide {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+
+  .carroussel-container.mode-center .carroussel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .carroussel-controls-wrapper {
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .carroussel-arrow {
+    padding: 0.5rem;
+  }
+}

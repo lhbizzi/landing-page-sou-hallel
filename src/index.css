@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Design System & Variable Tokens - Sou Hallel
+   ========================================================================== */
+:root {
+  /* Core Palette (Figma Specs) */
+  --button-color-light: #00E8A2;
+  --button-color-dark: #00825B;
+  --button-color-darker: #00583d;
+  --button-text-dark: #04271c;
+  --fade-effect-light: #0095E8;
+  --fade-effect-dark: #0060a3;
+  --background-color: #13345E;
+
+  /* Derived Gradients & Styles */
+  --btn-gradient: linear-gradient(135deg, var(--button-color-light) 0%, var(--button-color-dark) 100%);
+  --btn-gradient-hover: linear-gradient(135deg, #22f7b5 0%, #009c6d 100%);
+  --gradient-light: radial-gradient(
+    circle,
+    rgba(0, 149, 232, 0.65) 0%,
+    rgba(0, 149, 232, 0.35) 45%,
+    rgba(19, 52, 94, 0.05) 75%,
+    transparent 100%
+  );
+  
+  /* Additional UI Palette */
+  --bg-main: var(--background-color);
+  --bg-darker: #0c2342;
+  --bg-dark-card: #0d2547;
+  --bg-card: rgba(15, 41, 77, 0.75);
+  --bg-card-border: rgba(0, 149, 232, 0.25);
+  --bg-card-border-hover: rgba(0, 232, 162, 0.4);
+  --bg-light-section: #f0f4f8;
+
+  /* Typography Colors */
+  --text-white: #ffffff;
+  --text-muted: #a4b8d3;
+  --text-muted-dark: #4a6382;
+  --text-highlight: var(--button-color-light);
+  --text-dark: #0f172a;
+
+  /* Borders & Dividers */
+  --border-glass: rgba(255, 255, 255, 0.15);
+  --border-glass-light: rgba(255, 255, 255, 0.25);
+  --border-glass-bold: rgba(255, 255, 255, 0.9);
+  --divider-color: rgba(255, 255, 255, 0.12);
+
+  /* Shadows & Glow Effects */
+  --glow-light-blue: 0 0 50px rgba(0, 149, 232, 0.35);
+  --glow-button: 0 4px 20px rgba(0, 232, 162, 0.4);
+  --glow-button-hover: 0 6px 25px rgba(0, 232, 162, 0.6);
+  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.45);
+
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-white);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility Classes */
+.btn-primary {
+  background: var(--btn-gradient);
+  color: var(--button-text-dark, #04271c);
+  font-weight: 700;
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  box-shadow: var(--glow-button);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--btn-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-button-hover);
+}
+
+.glow-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--fade-effect-light);
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 16px;
+}
+
+/* Page Layout */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--bg-main);
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sections-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+/* Gradiente Circular à Esquerda (Home, Benefits e Founder) */
+.home-benefits-founder-glow {
+  position: absolute;
+  top: 680px;
+  left: -450px;
+  width: 1850px;
+  height: 1850px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 149, 232, 0.65) 0%,
+    rgba(0, 149, 232, 0.38) 38%,
+    rgba(19, 52, 94, 0.08) 68%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gradiente Circular à Direita (Founder e Atrações) */
+.founder-attractions-glow {
+  position: absolute;
+  top: 1950px;
+  right: -450px;
+  width: 1850px;
+  height: 1850px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 149, 232, 0.65) 0%,
+    rgba(0, 149, 232, 0.38) 38%,
+    rgba(19, 52, 94, 0.08) 68%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .sections-container {
+    gap: 2.5rem;
+  }
+
+  .home-benefits-founder-glow {
+    width: 900px;
+    height: 900px;
+    left: -300px;
+    top: 450px;
+    filter: blur(70px);
+  }
+
+  .founder-attractions-glow {
+    width: 900px;
+    height: 900px;
+    right: -300px;
+    top: 1400px;
+    filter: blur(70px);
+  }
+}
+
+/* Container e Marca d'água da Logo FAQ no App global (Tamanho Fixo e Estático) */
+.faq-global-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-bg-watermark-global {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1400px;
+  height: 550px;
+  background-image: url("./assets/logo-faq.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.11;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .faq-bg-watermark-global {
+    height: 380px;
+    opacity: 0.055;
+    background-size: 135%;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-bg-watermark-global {
+    display: none;
+  }
+}
+
+

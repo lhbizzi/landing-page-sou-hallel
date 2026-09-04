@@ -1,0 +1,153 @@
+.navbar-wrapper {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 36, 68, 0.45) 0%,
+    rgba(8, 24, 48, 0.45) 100%
+  );
+  border: 1px solid var(--bg-card-border);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem 0.5rem 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 65px;
+}
+
+.navbar-logo-img {
+  height: 65px;
+  max-height: 65px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.navbar-logo-img:hover {
+  transform: scale(1.04);
+}
+
+.navbar-center-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  color: var(--text-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-link:hover {
+  opacity: 1;
+  color: var(--button-color-light);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Customização do botão dentro da navbar */
+.navbar-subscription-btn {
+  font-size: 0.85rem !important;
+  padding: 0.65rem 1.6rem !important;
+  border-radius: 9999px !important;
+  white-space: nowrap;
+}
+
+/* Mobile Toggle */
+.navbar-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-white);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .navbar-container {
+    border-radius: 24px;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .navbar-logo-link,
+  .navbar-logo-img {
+    height: 52px;
+    max-height: 52px;
+  }
+
+  .navbar-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-center-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 1rem;
+    right: 1rem;
+    background: rgba(8, 24, 48, 0.92);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 1.25rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  }
+
+  .navbar-center-menu.is-open {
+    display: flex;
+  }
+
+  .navbar-actions {
+    display: none;
+  }
+
+  .navbar-center-menu.is-open .navbar-actions-mobile {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+

@@ -1,0 +1,117 @@
+/* ==========================================================================
+   ColapseFaq Component Styles - Sou Hallel
+   ========================================================================== */
+
+.colapse-faq-container {
+  width: 100%;
+  max-width: 850px;
+  margin: 0.6rem 0;
+  border-radius: 14px;
+  border: 1px solid var(--divider-color);
+  background: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+/* Estado Expandido (Aberto) - Expande exclusivamente para baixo */
+.colapse-faq-container.is-open {
+  background: linear-gradient(180deg, rgba(13, 37, 71, 0.95) 0%, rgba(8, 25, 48, 0.95) 100%);
+  border-color: var(--fade-effect-light);
+  box-shadow: 0 8px 30px rgba(0, 149, 232, 0.25);
+}
+
+.colapse-faq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.colapse-faq-header:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.colapse-faq-container.is-open .colapse-faq-header {
+  background-color: rgba(0, 149, 232, 0.05);
+}
+
+.colapse-faq-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin: 0;
+  transition: color 0.3s ease;
+  flex: 1;
+}
+
+.colapse-faq-container.is-open .colapse-faq-title {
+  color: var(--fade-effect-light);
+  font-weight: 700;
+}
+
+.colapse-faq-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
+
+.colapse-faq-container.is-open .colapse-faq-arrow {
+  transform: rotate(180deg);
+  color: var(--fade-effect-light);
+}
+
+/* Animação de Expansão Estritamente para Baixo */
+.colapse-faq-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.colapse-faq-container.is-open .colapse-faq-content-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.colapse-faq-content-inner {
+  overflow: hidden;
+}
+
+.colapse-faq-body {
+  padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--bg-card-border);
+}
+
+.colapse-faq-description {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .colapse-faq-header {
+    padding: 1rem 1.15rem;
+    gap: 0.75rem;
+  }
+
+  .colapse-faq-title {
+    font-size: 0.98rem;
+  }
+
+  .colapse-faq-body {
+    padding: 1rem 1.15rem 1.25rem 1.15rem;
+  }
+
+  .colapse-faq-description {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+}
+

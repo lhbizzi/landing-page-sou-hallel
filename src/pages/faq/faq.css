@@ -1,0 +1,63 @@
+/* ==========================================================================
+   FAQ Section Styles - Sou Hallel
+   ========================================================================== */
+
+.faq-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 1.5rem 5.5rem 1.5rem;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Container do Conteúdo */
+.faq-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.faq-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.faq-title-highlight {
+  color: var(--fade-effect-light);
+}
+
+.faq-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 3rem 1rem 3.5rem 1rem;
+  }
+
+  .faq-title {
+    font-size: 1.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-list {
+    gap: 0.5rem;
+  }
+}
+

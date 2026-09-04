@@ -1,0 +1,39 @@
+/* ==========================================================================
+   SubscriptionButton Component Styles - Sou Hallel
+   ========================================================================== */
+
+.subscription-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, var(--button-color-light) 0%, var(--button-color-dark) 100%);
+  color: var(--text-white);
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1rem 2.8rem;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 6px 0 var(--button-color-darker), var(--glow-button);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.2s ease;
+  user-select: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.subscription-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--button-color-darker), var(--glow-button-hover);
+  filter: brightness(1.06);
+}
+
+.subscription-button:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 var(--button-color-darker), 0 5px 12px rgba(0, 232, 162, 0.25);
+}
+
