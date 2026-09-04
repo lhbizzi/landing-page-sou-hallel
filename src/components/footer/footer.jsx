@@ -21,6 +21,21 @@ const InstagramIcon = ({ size = 20 }) => (
   </svg>
 );
 
+const TiktokIcon = ({ size = 20 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
+
 const FacebookIcon = ({ size = 20 }) => (
   <svg
     width={size}
@@ -57,7 +72,8 @@ const YoutubeIcon = ({ size = 20 }) => (
  *
  * @param {string} [email="hallel_email@gmail.com"] - Email de contato
  * @param {string} [phone="(16) 99225-4399"] - Telefone/WhatsApp de contato
- * @param {string} [instagramUrl="#"] - Link para o Instagram
+ * @param {string} [instagramUrl="https://www.instagram.com/hallelfrancaoficial/"] - Link para o Instagram
+ * @param {string} [tiktokUrl="https://www.tiktok.com/@hallelfrancaoficial"] - Link para o TikTok
  * @param {string} [facebookUrl="#"] - Link para o Facebook (opcional)
  * @param {string} [youtubeUrl="#"] - Link para o YouTube (opcional)
  * @param {string} [copyrightText="Todos os direitos reservados ao Hallel"] - Texto de copyright
@@ -67,11 +83,12 @@ const YoutubeIcon = ({ size = 20 }) => (
  * @param {string} [className] - Classes CSS adicionais
  */
 export function Footer({
-  email = "hallel_email@gmail.com",
-  phone = "(16) 99225-4399",
+  email = "hallelfrancasp@hotmail.com",
+  phone = "+55 16 99988-2969",
   instagramUrl = "https://www.instagram.com/hallelfrancaoficial/",
-  facebookUrl,
-  youtubeUrl,
+  tiktokUrl = "https://www.tiktok.com/@halleloficial",
+  facebookUrl = "https://www.facebook.com/hallelfranca",
+  youtubeUrl = "https://www.youtube.com/@Halleloficial",
   copyrightText = "Todos os direitos reservados ao Hallel",
   logoSrc = logoHallel,
   styles = {},
@@ -117,15 +134,29 @@ export function Footer({
           <h4 className="footer-title">Redes sociais</h4>
 
           <div className="footer-social-links">
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-social-link"
-              aria-label="Instagram Hallel"
-            >
-              <InstagramIcon size={20} />
-            </a>
+            {instagramUrl && (
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-link"
+                aria-label="Instagram Hallel"
+              >
+                <InstagramIcon size={20} />
+              </a>
+            )}
+
+            {tiktokUrl && (
+              <a
+                href={tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-link"
+                aria-label="TikTok Hallel"
+              >
+                <TiktokIcon size={20} />
+              </a>
+            )}
 
             {facebookUrl && (
               <a
